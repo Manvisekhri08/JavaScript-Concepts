@@ -86,6 +86,18 @@ async function handleAsyncPromise() {
 
 //EXAMPLE 2 :- OUTPUT
 handleAsyncPromise(); // now the after 5 seconds our first promise is resolved and give us the output and then after 10 seconds second promise will get resolved and give us the output
+
+//how async/await works behind the scenes
+// First its empty
+// as soon as handleAsyncPromise function is called it sees that there are 2 promises to be resolved that are taking their own time to be resolved
+// CALL STACK
+// as soon as handleAsyncPromise function is called it will push inside the call stack
+// JS synchronous single threaded language it starts executing code line by line it will first console Before await
+// then it will move further and it sees there is await promiseSetTimeOut now guess 1 is do the handleAsyncPromise() stay in stack wait for promise to be resolved?
+// no it will not, in fact the execution of handleAsyncPromise()  will get suspended and pops out for the time and it will wait till the promiseSetTimeOut is resolved then it will move ahead. promiseSetTimeOut will be resolved after 5 sec.
+// as call stack got empty after 5 sec handleAsyncPromise() again push inside and it will continue where it left from
+// then it sees another promise and check if it is resolved but 2nd promise will be resolved after 10 secs so again it will be suspended and wait for it to be resolved and handleAsyncPromise() push in again and continur the execution from where it left
+
 //with example 2
 
 // function handleNormalPromise() {
