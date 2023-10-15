@@ -43,6 +43,8 @@ await is a keyword that is only used inside your async function.
 difference b/w normally handling promise and handling async await
 why async await is important
 
+// **************************************************************************************************************************************************************************************************
+
 EXAMPLE :- 1
 const promiseSetTimeOut = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -128,10 +130,14 @@ handleNormalPromise(); // first Normal Promise will be printed then after 10 sec
 // Example 3 :- without Promise setTimeout , using fetch 
 const API_URL = "https://api.github.com/users/Manvisekhri08"
 async function handlePromise() {
+    try {
     const data = await fetch(API_URL);
-    const dataJson = await data.json()
-    console.log(data);
+    const dataJson = await data.json();
     console.log(dataJson);
+    }
+    catch(error) {
+        console.log("User not found",error);
+    }
 }
 handlePromise();
 
@@ -148,4 +154,5 @@ if you want to convert this readable string to json all you have to do is
 Response.json() again this is a promise
 when this promise is resolved it gives the json value
 fetch() => Response.json() => jsonValue
+fetch().then(res => res.json()).then(res => console.log(res));
  */
