@@ -127,7 +127,7 @@ handleNormalPromise(); // first Normal Promise will be printed then after 10 sec
 
 // **************************************************************************************************************************************************************************************************
 
-// Example 3 :- without Promise setTimeout , using fetch 
+// EXAMPLE 3 :- without Promise setTimeout , using fetch 
 const API_URL = "https://api.github.com/users/Manvisekhri08"
 async function handlePromise() {
     try {
@@ -155,4 +155,27 @@ Response.json() again this is a promise
 when this promise is resolved it gives the json value
 fetch() => Response.json() => jsonValue
 fetch().then(res => res.json()).then(res => console.log(res));
+ */
+
+// **************************************************************************************************************************************************************************************************
+
+// INTERVIEW TIPS
+/* ques 1:- what is async await?
+first tell interview that async is a keyword which is used with function 
+async function is a different thing
+await  is only used inside async function to handle promises
+promises are asynchronous function
+tell tell them through a code and tell how it works behind the scene
+*/
+
+// ASYNC AWAIT vs PROMISE.then/catch
+/* when to use what
+async await is a syntactic sugar over then and catch
+js behind the scenes using then and catch
+only how we write the code changes
+
+what is better?
+both are
+async await is more preferrable
+in promise you have to do promise chaining but in nasync await w edont have to
  */
