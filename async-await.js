@@ -126,8 +126,26 @@ handleNormalPromise(); // first Normal Promise will be printed then after 10 sec
 // **************************************************************************************************************************************************************************************************
 
 // Example 3 :- without Promise setTimeout , using fetch 
-const 
+const API_URL = "https://api.github.com/users/Manvisekhri08"
 async function handlePromise() {
-
+    const data = await fetch(API_URL);
+    const dataJson = await data.json()
+    console.log(data);
+    console.log(dataJson);
 }
+handlePromise();
 
+/* whats happening
+when we call fetch it gives us a promise
+handlePromise() will be suspended at line 131, and it will continue only after the fetch is resolved.
+fetch returns a response
+*/
+
+/* how fetch works?
+fetch is a promise when this promise is resolved it gives us a response object
+response object has a body which is readable string 
+if you want to convert this readable string to json all you have to do is
+Response.json() again this is a promise
+when this promise is resolved it gives the json value
+fetch() => Response.json() => jsonValue
+ */
